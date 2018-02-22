@@ -1,0 +1,392 @@
+\documentclass{article}
+
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}
+
+\usepackage[
+             %paper=a4paper,
+	     paperheight=1070mm,
+	     paperwidth=210mm,
+             margin=1cm,
+             noheadfoot
+            ]{geometry}
+ 
+\usepackage{tikz}
+\usepackage[siunitx]{circuitikz}
+
+\begin{document}
+\pagestyle{empty}
+\section*{Monopoles}
+
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw   (0,0) node[ground] (m) {};
+\draw   (2,0) node[rground] (m) {};
+\draw   (4,0) node[sground] (m) {};
+\draw   (6,0) node[tground] (m) {};
+\draw   (8,0) node[nground] (m) {};
+\draw   (10,0) node[pground] (m) {};
+\draw   (12,0) node[cground] (m) {};
+\draw   (14,0) node[tlinestub] (m) {};
+
+\draw   (0,-4) node[vcc] (m) {};
+\draw   (2,-4) node[vee] (m) {};
+\draw   (4,-4) node[match] (m) {};
+
+\draw   (6,-4) node[antenna] (m) {};
+\draw   (8,-4) node[rxantenna] (m) {};
+\draw   (12,-4) node[txantenna] (m) {};
+\end{circuitikz}
+\end{figure}
+
+\section*{Bipoles}
+
+\subsection*{instruments}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)   to[ammeter] ++(2,0);
+\draw  (2.5,0) to[voltmeter] ++(2,0);
+\draw  (5,0)   to[ohmmeter] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Basic resistive bipoles}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[lamp] ++(2,0);
+\draw  (2.5,0)  to[generic] ++(2,0);
+\draw  (5,0)    to[tgeneric] ++(2,0);
+\draw  (7.5,0)  to[ageneric] ++(2,0);
+\draw  (10,0)   to[fullgeneric] ++(2,0);
+\draw  (12.5,0) to[tfullgeneric] ++(2,0);
+\draw  (15,0)   to[memristor] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Resistors and the like}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[R] ++(2,0);
+\draw  (2.5,0)  to[vR] ++(2,0);
+\draw  (5,0)    to[pR] ++(2,0);
+\draw  (7.5,0)  to[european resistor] ++(2,0);
+\draw  (10,0)   to[variable european resistor] ++(2,0);
+\draw  (12.5,0) to[european potentiometer] ++(2,0);
+\draw  (15,0)   to[varistor] ++(2,0);
+
+\draw  (0,-2)    to[photoresistor] ++(2,0);
+\draw  (2.5,-2)  to[thermocouple] ++(2,0);
+\draw  (5,-2)    to[thermistor] ++(2,0);
+\draw  (7.5,-2)  to[thermistor ptc] ++(2,0);
+\draw  (10,-2)   to[thermistor ntc] ++(2,0);
+\draw  (12.5,-2) to[fuse] ++(2,0);
+\draw  (15,-2)   to[afuse] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Diodes and such}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[empty diode] ++(2,0);
+\draw  (2.5,0)  to[empty Schottky diode] ++(2,0);
+\draw  (5,0)    to[empty Zener diode] ++(2,0);
+\draw  (7.5,0)  to[empty ZZener diode] ++(2,0);
+\draw  (10,0)   to[empty tunnel diode] ++(2,0);
+\draw  (12.5,0) to[empty photodiode] ++(2,0);
+\draw  (15,0)   to[empty led] ++(2,0);
+
+\draw  (0,-2)    to[empty varcap] ++(2,0);
+\draw  (2.5,-2)  to[full diode] ++(2,0);
+\draw  (5,-2)    to[full Schottky diode] ++(2,0);
+\draw  (7.5,-2)  to[full Zener diode] ++(2,0);
+\draw  (10,-2)   to[full ZZener diode] ++(2,0);
+\draw  (12.5,-2) to[full tunnel diode] ++(2,0);
+\draw  (15,-2)   to[full photodiode] ++(2,0);
+
+\draw  (0,-4)    to[full led] ++(2,0);
+\draw  (2.5,-4)  to[full varcap] ++(2,0);
+\draw  (5,-4)    to[stroke diode] ++(2,0);
+\draw  (7.5,-4)  to[stroke Schottky diode] ++(2,0);
+\draw  (10,-4)   to[stroke Zener diode] ++(2,0);
+\draw  (12.5,-4) to[stroke ZZener diode] ++(2,0);
+\draw  (15,-4)   to[stroke tunnel diode] ++(2,0);
+
+\draw  (0,-6)    to[stroke photodiode] ++(2,0);
+\draw  (2.5,-6)  to[stroke led] ++(2,0);
+\draw  (5,-6)    to[stroke varcap] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Other tripole-like diodes}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[empty triac] ++(2,0);
+\draw  (2.5,0)  to[full triac] ++(2,0);
+\draw  (5,0)    to[empty thyristor] ++(2,0);
+\draw  (7.5,0)  to[full thyristor] ++(2,0);
+\draw  (10,0)   to[stroke thyristor] ++(2,0);
+\draw  (12.5,0) to[squid] ++(2,0);
+\draw  (15,0)   to[barrier] ++(2,0);
+
+\draw  (0,-2)    to[european gas filled surge arrester] ++(2,0);
+\draw  (2.5,-2)  to[american gas filled surge arrester] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Basic dynamical bipoles}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[capacitor] ++(2,0);
+\draw  (2.5,0)  to[polar capacitor] ++(2,0);
+\draw  (5,0)    to[ecapacitor] ++(2,0);
+\draw  (7.5,0)  to[variable capacitor] ++(2,0);
+\draw  (10,0)   to[piezoelectric] ++(2,0);
+\draw  (12.5,0) to[cute inductor] ++(2,0);
+\draw  (15,0)   to[variable cute inductor] ++(2,0);
+
+\draw  (0,-2)    to[american inductor] ++(2,0);
+\draw  (2.5,-2)  to[variable american inductor] ++(2,0);
+\draw  (5,-2)    to[european inductor] ++(2,0);
+\draw  (7.5,-2)  to[variable european inductor] ++(2,0);
+\draw  (10,-2)   to[transmission line] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Stationary sources}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[battery] ++(2,0);
+\draw  (2.5,0)  to[battery1] ++(2,0);
+\draw  (5,0)    to[battery2] ++(2,0);
+\draw  (7.5,0)  to[european voltage source] ++(2,0);
+\draw  (10,0)   to[american voltage source] ++(2,0);
+\draw  (12.5,0) to[european current source] ++(2,0);
+\draw  (15,0)   to[american current source] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Sinusoidal sources}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[sinusoidal voltage source] ++(2,0);
+\draw  (2.5,0)  to[sinusoidal current source,] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Special sources}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[square voltage source] ++(2,0);
+\draw  (2.5,0)  to[vsourcetri] ++(2,0);
+\draw  (5,0)    to[esource] ++(2,0);
+\draw  (7.5,0)  to[pvsource] ++(2,0);
+\draw  (10,0)   to[ioosource] ++(2,0);
+\draw  (12.5,0) to[voosource] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{DC sources}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[dcvsource] ++(2,0);
+\draw  (2.5,0)  to[dcisource] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Mechanical Analogy}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[damper] ++(2,0);
+\draw  (2.5,0)  to[spring] ++(2,0);
+\draw  (5,0)    to[mass] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Switch}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[closing switch] ++(2,0);
+\draw  (2.5,0)  to[opening switch] ++(2,0);
+\draw  (5,0)    to[normal open switch] ++(2,0);
+\draw  (7.5,0)  to[normal closed switch] ++(2,0);
+\draw  (10,0)   to[push button] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Block diagram components}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[twoport] ++(2,0);
+\draw  (2.5,0)  to[vco] ++(2,0);
+\draw  (5,0)    to[bandpass] ++(2,0);
+\draw  (7.5,0)  to[bandstop] ++(2,0);
+\draw  (10,0)   to[highpass] ++(2,0);
+\draw  (12.5,0) to[lowpass] ++(2,0);
+\draw  (15,0)   to[adc] ++(2,0);
+
+\draw  (0,-2)    to[dac] ++(2,0);
+\draw  (2.5,-2)  to[dsp] ++(2,0);
+\draw  (5,-2)    to[fft] ++(2,0);
+\draw  (7.5,-2)  to[amp] ++(2,0);
+\draw  (10,-2)   to[vamp] ++(2,0);
+\draw  (12.5,-2) to[piattenuator] ++(2,0);
+\draw  (15,-2)   to[vpiattenuator] ++(2,0);
+
+\draw  (0,-4)    to[tattenuator] ++(2,0);
+\draw  (2.5,-4)  to[vtattenuator] ++(2,0);
+\draw  (5,-4)    to[phaseshifter] ++(2,0);
+\draw  (7.5,-4)  to[vphaseshifter] ++(2,0);
+\draw  (10,-4)   to[detector] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\section*{Tripoles}
+\subsection*{Controlled sources}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    to[european controlled voltage source] ++(2,0);
+\draw  (2.5,0)  to[american controlled voltage source] ++(2,0);
+\draw  (5,0)    to[european controlled current source] ++(2,0);
+\draw  (7.5,0)  to[american controlled current source] ++(2,0);
+\draw  (10,0)   to[controlled sinusoidal voltage source] ++(2,0);
+\draw  (12.5,0) to[controlled sinusoidal current source] ++(2,0);
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Transistors}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[nmos]{};
+\draw  (2.5,0)  node[pmos]{};
+\draw  (5,0)    node[pmos,emptycircle]{};
+\draw  (7.5,0)  node[npn]{};
+\draw  (10,0)   node[pnp]{};
+\draw  (12.5,0) node[npn,photo]{};
+\draw  (15,0)   node[pnp,photo]{};
+
+\draw  (0,-2)    node[nigbt]{};
+\draw  (2.5,-2)  node[pigbt]{};
+\draw  (5,-2)    node[Lnigbt]{};
+\draw  (7.5,-2)  node[Lpigbt]{};
+\draw  (10,-2)   node[npn,bodydiode]{};
+\draw  (12.5,-2) node[pnp,bodydiode]{};
+\draw  (15,-2)   node[nigbt,bodydiode]{};
+
+\draw  (0,-4)    node[pigbt,bodydiode]{};
+\draw  (2.5,-4)  node[nfet,bodydiode]{};
+\draw  (5,-4)    node[pfet,bodydiode]{};
+\draw  (7.5,-4)  node[nfet]{};
+\draw  (10,-4)   node[pfet]{};
+\draw  (12.5,-4) node[nigfete,solderdot]{};
+\draw  (15,-4)   node[nigfetebulk]{};
+
+\draw  (0,-6)    node[nigfetd]{};
+\draw  (2.5,-6)  node[pfet]{};
+\draw  (5,-6)    node[pigfete]{};
+\draw  (7.5,-6)  node[pigfetebulk]{};
+\draw  (10,-6)   node[pigfetd]{};
+\draw  (12.5,-6) node[njfet]{};
+\draw  (15,-6)   node[pjfet]{};
+
+\draw  (0,-8)    node[isfet]{};
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Electronic Tubes}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[magnetron]{};
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Block diagram}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[mixer]{};
+\draw  (2.5,0)  node[adder]{};
+\draw  (5,0)    node[oscillator]{};
+\draw  (7.5,0)  node[circulator]{};
+\draw  (10,0)   node[wilkinson]{};
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Switch}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[spdt]{};
+\draw  (2.5,0)  node[toggle switch]{};
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Electro-Mechanical Devices}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[elmech]{M};
+\draw  (2.5,0)  node[elmech]{G};
+\draw  (5,0)    node[elmech]{};
+\end{circuitikz}
+\end{figure}
+
+\section*{Double bipoles}
+\subsection*{Transformers}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[transformer]{};
+\draw  (3,0)  node[transformer core]{};
+\end{circuitikz}
+\hspace{1cm}
+\begin{circuitikz}[american]
+\draw  (0,0)    node[transformer]{};
+\draw  (3,0)  node[transformer core]{};
+\end{circuitikz}
+\hspace{1cm}
+\begin{circuitikz}[european]
+\draw  (0,0)    node[transformer]{};
+\draw  (3,0)  node[transformer core]{};
+\end{circuitikz}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)    node[gyrator]{};
+\draw  (3,-1)  node[coupler]{};
+\draw  (6,-1)    node[coupler2]{};
+\end{circuitikz}
+\end{figure}
+
+\subsection*{Amplifiers}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}
+\draw  (0,0)  node[op amp]{};
+\draw  (3,0)  node[en amp]{};
+\draw  (6,0)  node[fd op amp]{};
+\draw  (9,0)  node[gm amp]{};
+\draw  (12,0) node[plain amp]{};
+\draw  (15,0) node[buffer]{};
+\end{circuitikz}
+\end{figure}
+
+\end{document}
+
