@@ -7,4 +7,4 @@ If you want to compile the document simply type (obviously you must have latex i
 pdflatex circ.tex
 ```
 
-Alternatively you can simply open the svg file on inkscape and draw yout circuit using circuitikz models. 
+Alternatively you can simply open the svg file on inkscape and draw your circuit using circuitikz models. 
