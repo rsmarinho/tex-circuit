@@ -8,3 +8,6 @@ pdflatex circ.tex
 ```
 
 Alternatively you can simply open the svg file on inkscape and draw your circuit using circuitikz models. 
+
+
+Hope you like it.
